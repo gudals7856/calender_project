@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Group_TodoList")
+@Table(name = "groups_todolist")
 @Data
 @RequiredArgsConstructor
 public class ToDoListGroupsEntity {

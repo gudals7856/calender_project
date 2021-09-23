@@ -17,17 +17,18 @@ import java.util.List;
 @NoArgsConstructor
 public class GroupsEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "groups_id")
     private Long id;
 
-    private String groupName;
+    private String groupsName;
 
-    private String groupContent;
+    private String groupsContent;
 
-    private String groupAuthor;
+    private String groupsAuthor;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdTime;
 
-    @OneToMany(mappedBy = "groups")
+    @OneToMany(mappedBy = "groupsEntity")
     private List<GroupsUserEntity> groupsUser = new ArrayList<>();
 }

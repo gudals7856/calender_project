@@ -2,6 +2,7 @@ package com.himsoomzzin.calender.domain.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -10,9 +11,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class UserEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
 
-    private String userId;
+    private String usersId;
 
     private String pwd;
 
@@ -22,7 +24,8 @@ public class UserEntity {
 
     private String email;
 
-    private String userGroup;
+    @OneToMany(mappedBy = "userEntity")
+    private List<GroupsUserEntity> userGroup;
 
     private String img;
 
