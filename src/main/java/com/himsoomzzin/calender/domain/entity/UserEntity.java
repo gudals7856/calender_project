@@ -10,8 +10,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserEntity {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String usersId;
@@ -25,7 +25,7 @@ public class UserEntity {
     private String email;
 
     @OneToMany(mappedBy = "userEntity")
-    private List<GroupsUserEntity> userGroup;
+    private List<TeamUserEntity> userGroup;
 
     private String img;
 

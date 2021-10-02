@@ -1,21 +1,18 @@
 package com.himsoomzzin.calender.domain.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "to_do_list")
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Table(name = "todolist")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ToDoListEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String author;  // userId
@@ -26,6 +23,9 @@ public class ToDoListEntity {
 
     private String content;
 
-    @OneToMany(mappedBy = "toDoList")
-    private List<ToDoListGroupsEntity> toDoListGroupsEntities = new ArrayList<>();
+    @OneToMany(mappedBy = "toDoListEntity")
+    private List<ToDoListTeamEntity> toDoListTeamEntities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "toDoListEntity")
+    private List<TaskEntity> taskEntities = new ArrayList<>();
 }

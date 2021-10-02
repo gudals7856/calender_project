@@ -3,18 +3,17 @@ package com.himsoomzzin.calender.domain.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "groupsuser")
+@Table(name = "team_user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupsUserEntity {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TeamUserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
@@ -22,8 +21,8 @@ public class GroupsUserEntity {
     private UserEntity userEntity;
 
     @ManyToOne
-    @JoinColumn(name = "groups_id")
-    private GroupsEntity groupsEntity;
+    @JoinColumn(name = "team_id")
+    private TeamEntity teamEntity;
 
     private String position;
 }

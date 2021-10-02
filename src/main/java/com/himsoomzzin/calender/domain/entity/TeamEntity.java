@@ -11,24 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "groups")
+@Table(name = "team")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupsEntity {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "groups_id")
+public class TeamEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String groupsName;
+    private String teamName;
 
-    private String groupsContent;
+    private String teamContent;
 
-    private String groupsAuthor;
+    private String teamAuthor;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdTime;
 
-    @OneToMany(mappedBy = "groupsEntity")
-    private List<GroupsUserEntity> groupsUser = new ArrayList<>();
+    @OneToMany(mappedBy = "teamEntity")
+    private List<TeamUserEntity> teamUsers = new ArrayList<>();
 }
